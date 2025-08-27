@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="TechStore - Tu tienda de tecnología favorita" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>TechStore - E-commerce</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<script>
+    // Interceptar errores de extensiones
+    window.addEventListener('error', function (e) {
+        // Silenciar errores específicos de extensiones
+        if (e.message && e.message.includes('A listener indicated an asynchronous response')) {
+            e.preventDefault();
+            return true;
+        }
+        if (e.message && e.message.includes('message channel closed')) {
+            e.preventDefault();
+            return true;
+        }
+    });
+
+    // Interceptar errores de promesas rechazadas
+    window.addEventListener('unhandledrejection', function (e) {
+        if (e.reason && e.reason.message &&
+            (e.reason.message.includes('A listener indicated') ||
+                e.reason.message.includes('message channel closed'))) {
+            e.preventDefault();
+        }
+    });
+
+    // Limpiar consola de errores irrelevantes
+    setTimeout(() => {
+        if (typeof console !== 'undefined' && console.clear) {
+            console.clear();
+        }
+    }, 1000);
+</script>
+
+<body>
+    <noscript>Necesitas habilitar JavaScript para ejecutar esta aplicación.</noscript>
+    <div id="root"></div>
+</body>
+
+</html>
