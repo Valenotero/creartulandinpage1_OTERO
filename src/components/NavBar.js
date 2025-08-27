@@ -29,12 +29,12 @@ const NavBar = ({ currentPage, setCurrentPage, products = [] }) => {
                         {/* Logo */}
                         <div className="flex items-center cursor-pointer" onClick={() => handleNavClick('home')}>
                             <div className="flex-shrink-0 flex items-center">
-                                <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
-                                    <span className="text-white font-bold text-xl">T</span>
-                                </div>
-                                <span className="ml-2 text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                                    TechStore
-                                </span>
+                                {/* Se ha reemplazado el div de texto por la imagen del logo */}
+                                <img
+                                    src="/Logotipotechstore.png"
+                                    alt="TechStore Logo"
+                                    className="h-10 w-auto"
+                                />
                             </div>
                         </div>
 
@@ -46,9 +46,9 @@ const NavBar = ({ currentPage, setCurrentPage, products = [] }) => {
                                         key={item.key}
                                         onClick={() => handleNavClick(item.key)}
                                         className={`px-3 py-2 rounded-md font-medium transition-colors duration-300 ${currentPage === item.key
-                                                ? 'text-purple-600 bg-purple-50'
-                                                : 'text-gray-700 hover:text-purple-600'
-                                            }`}
+                                            ? 'text-purple-600 bg-purple-50'
+                                            : 'text-gray-700 hover:text-purple-600'
+                                        }`}
                                     >
                                         {item.label}
                                     </button>
@@ -103,9 +103,9 @@ const NavBar = ({ currentPage, setCurrentPage, products = [] }) => {
                                         key={item.key}
                                         onClick={() => handleNavClick(item.key)}
                                         className={`block w-full text-left px-3 py-2 rounded-md font-medium transition-colors duration-300 ${currentPage === item.key
-                                                ? 'text-purple-600 bg-purple-100'
-                                                : 'text-gray-700 hover:text-purple-600'
-                                            }`}
+                                            ? 'text-purple-600 bg-purple-100'
+                                            : 'text-gray-700 hover:text-purple-600'
+                                        }`}
                                     >
                                         {item.label}
                                     </button>

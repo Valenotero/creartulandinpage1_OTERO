@@ -11,12 +11,12 @@ const Footer = () => {
                     {/* Logo y Descripción */}
                     <div className="md:col-span-1">
                         <div className="flex items-center mb-4">
-                            <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
-                                <span className="text-white font-bold text-xl">T</span>
-                            </div>
-                            <span className="ml-2 text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                                TechStore
-                            </span>
+                            {/* Se ha reemplazado el div de texto por la imagen del logo */}
+                            <img
+                                src="/Logotipotechstore.png"
+                                alt="TechStore Logo"
+                                className="h-10 w-auto"
+                            />
                         </div>
                         <p className="text-gray-400 text-sm leading-relaxed">
                             Tu tienda de tecnología de confianza. Productos de calidad con la mejor atención al cliente.
