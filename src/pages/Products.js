@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { db } from "../firebaseConfig";
 console.log("🔥 Firebase conectado correctamente:", db);
 
+
 const Products = () => {
     const [products] = useState([
         {
