@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { db } from "../firebaseConfig";
+import { useCart } from '../context/CartContext';
+
 console.log("🔥 Firebase conectado correctamente:", db);
 
-
 const Products = () => {
+    
+    const { addItem } = useCart();
+
     const [products] = useState([
         {
             id: 1,
@@ -69,28 +73,6 @@ const Products = () => {
         }
     };
 
-    const addToCart = (product) => {
-        const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
-        const existingItem = existingCart.find(item => item.id === product.id);
-
-        let newCart;
-        if (existingItem) {
-            newCart = existingCart.map(item =>
-                item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-            );
-        } else {
-            newCart = [...existingCart, { ...product, quantity: 1 }];
-        }
-
-        localStorage.setItem('cart', JSON.stringify(newCart));
-
-        // Mostrar notificación
-        alert(`¡${product.name} agregado al carrito!`);
-
-        // Recargar página para actualizar contador del carrito
-        window.location.reload();
-    };
-
     const formatPrice = (price) => {
         return new Intl.NumberFormat('es-AR', {
             style: 'currency',
@@ -151,7 +133,10 @@ const Products = () => {
                                 <p className="text-sm text-purple-600 mb-3 font-medium">{product.category}</p>
                                 <p className="text-2xl font-bold text-gray-900 mb-4">{formatPrice(product.price)}</p>
                                 <button
-                                    onClick={() => addToCart(product)}
+                                    onClick={() => {
+                                        addItem(product, 1);
+                                        alert(`¡${product.name} agregado al carrito!`);
+                                    }}
                                     className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-full font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105"
                                 >
                                     Agregar al Carrito
