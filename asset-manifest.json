@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/creartulandinpage1_OTERO/static/css/main.af8b778d.css",
+    "main.js": "/creartulandinpage1_OTERO/static/js/main.7be8fec3.js",
+    "index.html": "/creartulandinpage1_OTERO/index.html",
+    "main.af8b778d.css.map": "/creartulandinpage1_OTERO/static/css/main.af8b778d.css.map",
+    "main.7be8fec3.js.map": "/creartulandinpage1_OTERO/static/js/main.7be8fec3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.af8b778d.css",
+    "static/js/main.7be8fec3.js"
+  ]
+}
